@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alvito A. Prasetyo — Portfolio</title>
+  
+  <!-- Google Fonts: Space Grotesk & Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Contoh impor font Poppins & Outfit dari Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Stars & Galaxy Ambient Overlay -->
+  <div class="space-background"></div>
+
+  <!-- 1. NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">
+        <img src="assets/logo-white.png" alt="Logo" class="site-logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 2. HERO SECTION -->
+  <header class="hero" id="hero">
+    <div class="container hero-content">
+      <p class="hero-greeting">HEY FOLKS!</p>
+      <h1 class="hero-title">I’m Alvito Prasetyo</h1>
+      <p class="hero-subtitle">
+        Uncovering business insights and building predictive solutions from raw data to drive smarter decisions.
+      </p>
+      
+      <!-- Action Buttons Group -->
+      <div class="hero-cta-group">
+        <a href="#contact" class="btn-galaxy">GET IN TOUCH</a>
+        <a href="assets/cv.pdf" target="_blank" download class="btn-galaxy btn-outline">
+          <span>DOWNLOAD CV</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. ABOUT ME SECTION -->
+  <section id="about">
+    <div class="container">
+      <span class="section-tag">Overview</span>
+      <h2 class="section-title">ABOUT ME</h2>
+      <p class="about-description">
+        I am a data professional who thrives at the intersection of analytics and business strategy. My approach goes beyond running queries or generating static chart. I focus on diagnosing complex business problems, discovering hidden drivers in data, and delivering actionable insights that lead to smarter decisions.
+      </p>
+
+      <div class="glass-grid">
+        <div class="glass-card">
+          <h3 class="glass-card-title">Business Intelligence & Analytics</h3>
+          <p class="glass-card-text">
+            Translating complex transactional data into clear, interactive dashboards and structured KPIs for real-time tracking.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <h3 class="glass-card-title">Diagnostic & Decision Science</h3>
+          <p class="glass-card-text">
+            Uncovering root causes, analyzing trends, and transforming unstructured information into data-backed strategic recommendations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CREDENTIALS SECTION (CAROUSEL WITH 2 CARDS PER SLIDE) -->
+  <section id="credentials">
+    <div class="container">
+      <span class="section-tag">Background & Credentials</span>
+      <h2 class="section-title">Experience, Education & Certifications</h2>
+
+      <div class="tab-navigation">
+        <button class="tab-btn active" onclick="switchTab(event, 'experience')">
+          Experience
+        </button>
+        <button class="tab-btn" onclick="switchTab(event, 'education')">
+          Education
+        </button>
+        <button class="tab-btn" onclick="switchTab(event, 'certifications')">
+          Certicate
+        </button>
+      </div>
+
+      <!-- Tab Content 1: Experience Carousel -->
+      <div id="experience" class="tab-content active">
+        <div class="cred-carousel-wrapper">
+          <button class="cred-carousel-btn prev-btn" onclick="moveCredCarousel('experienceTrack', -1)">❮</button>
+          
+          <div class="cred-carousel-window">
+            <div class="cred-carousel-track" id="experienceTrack">
+              
+              <!-- 1. Active Role: PT Gumindo Bogamanis -->
+              <div class="glass-card cred-card active-role">
+                <div class="item-header">
+                  <h3 class="item-title">Data Analyst</h3>
+                  <span class="item-badge active-badge">Aug 2026 – Present</span>
+                </div>
+                <p class="item-subtitle">PT Gumindo Bogamanis</p>
+                <ul class="item-description">
+                  <li>Headed weekly and monthly FMCG sales monitoring to drive commercial strategy. Automated data preparation using Python and Advanced Excel, cutting processing time from 2 days to 10 minutes while eliminating manual errors and providing leadership with actionable insights to optimize distribution channels.</li>
+                </ul>
+              </div>
+
+              <!-- 2. Past Role: PT Propan Raya ICC -->
+              <div class="glass-card cred-card">
+                <div class="item-header">
+                  <h3 class="item-title">Research & Development Staff</h3>
+                  <span class="item-badge">May 2022 – Jul 2026</span>
+                </div>
+                <p class="item-subtitle">PT Propan Raya ICC</p>
+                <ul class="item-description">
+                  <li>Developed high-performance, eco-friendly colorant systems for paint production while leading root-cause evaluations and SOP refinements to resolve manufacturing issues and improve operational efficiency.</li>
+                </ul>
+              </div>
+
+              <!-- 3. Mentorship: Garuda Hacks 6.0
+              <div class="glass-card cred-card">
+                <div class="item-header">
+                  <h3 class="item-title">Mentor of Product Manager</h3>
+                  <span class="item-badge">Jul 2025</span>
+                </div>
+                <p class="item-subtitle">Garuda Hacks 6.0 Competition</p>
+                <ul class="item-description">
+                  <li>Guided hackathon teams in business concept validation and product pitch refinement[cite: 4].</li>
+                  <li>Mentored Team NataNetra to secure Runner-Up position in national finals[cite: 4].</li>
+                </ul>
+              </div> -->
+
+              <!-- 3. Past Role: Yayasan Sagasitas Indonesia -->
+              <div class="glass-card cred-card">
+                <div class="item-header">
+                  <h3 class="item-title">Master Trainer Cloud Computing AWS</h3>
+                  <span class="item-badge">Dec 2020 – Nov 2021</span>
+                </div>
+                <p class="item-subtitle">Yayasan Sagasitas Indonesia</p>
+                <ul class="item-description">
+                  <li>Educated 10,000+ students nationwide on Cloud Computing & AWS Practitioner concepts.</li>
+                  <li>Managed event operations and designed educational booklets/graphic materials.</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <button class="cred-carousel-btn next-btn" onclick="moveCredCarousel('experienceTrack', 1)">❯</button>
+        </div>
+      </div>
+
+      <!-- Tab Content 2: Education Carousel -->
+      <div id="education" class="tab-content">
+        <div class="cred-carousel-wrapper">
+          <button class="cred-carousel-btn prev-btn" onclick="moveCredCarousel('educationTrack', -1)">❮</button>
+          
+          <div class="cred-carousel-window">
+            <div class="cred-carousel-track" id="educationTrack">
+              
+              <div class="glass-card cred-card">
+                <div class="item-header">
+                  <h3 class="item-title">Bachelor of Information Systems</h3>
+                  <span class="item-badge">2023 – 2027</span>
+                </div>
+                <p class="item-subtitle">Pelita Harapan University (GPA: 3.83)</p>
+                <ul class="item-description">
+                  <li>Focus: Data Analytics, Database Management, SQL, Python, and Systems Architecture[cite: 4].</li>
+                </ul>
+              </div>
+
+              <div class="glass-card cred-card">
+                <div class="item-header">
+                  <h3 class="item-title">Business Intelligence Online Bootcamp</h3>
+                  <span class="item-badge">Jul 2025 – Sep 2025</span>
+                </div>
+                <p class="item-subtitle">Digital Skola (GPA: Excellent)</p>
+                <ul class="item-description">
+                  <li>Intensive coursework in data warehousing, BI modeling, SQL, and Power BI visualization[cite: 4].</li>
+                </ul>
+              </div>
+
+              <div class="glass-card cred-card">
+                <div class="item-header">
+                  <h3 class="item-title">Non-Degree — Business & Marketing</h3>
+                  <span class="item-badge">2022 – 2023</span>
+                </div>
+                <p class="item-subtitle">Gadjah Mada University (GPA: 3.86/4.00)</p>
+                <ul class="item-description">
+                  <li>Focused on consumer analytics, market growth, and strategic marketing analysis[cite: 4].</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <button class="cred-carousel-btn next-btn" onclick="moveCredCarousel('educationTrack', 1)">❯</button>
+        </div>
+      </div>
+
+      <!-- Tab Content 3: Certifications Carousel (4 Cards per view) -->
+    <div id="certifications" class="tab-content">
+      <div class="cred-carousel-wrapper">
+        <button class="cred-carousel-btn prev-btn" onclick="moveCredCarousel('certTrack', -1)">❮</button>
+        
+        <div class="cred-carousel-window">
+          <div class="cred-carousel-track" id="certTrack">
+
+            <!-- Cert -->
+            <a href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_6acf17c851a640ee736976ef_1792118419377_completion_certificate.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-card cred-card cert-card cert-link">
+              <h3 class="item-title">Deloitte Australia - Data Analytics Job Simulation</h3>
+              <p class="item-subtitle">Deloitte Australia - Technology Virtual Experience, Forage</p>
+              <span class="cert-year">2026</span>
+            </a>
+
+            <!-- Cert -->
+            <a href="https://www.theforage.com/completion-certificates/tMjbs76F526fF5v3G/NjynCWzGSaWXQCxSX_tMjbs76F526fF5v3G_6acf17c851a640ee736976ef_1792036317944_completion_certificate.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-card cred-card cert-card cert-link">
+              <h3 class="item-title">British Airways - Data Science Job Simulation</h3>
+              <p class="item-subtitle">British Airways - Technology Virtual Experience, Forage</p>
+              <span class="cert-year">2026</span>
+            </a>
+
+            <!-- Cert -->
+            <a href="https://drive.google.com/file/d/15OymrDMSwW3qsHp5Y-Qu_EEKyxtZf0Kw/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-card cred-card cert-card cert-link">
+              <h3 class="item-title">IBM SkillsBuild: Introduction to Tableau Desktop</h3>
+              <p class="item-subtitle">IBM SkillsBuild</p>
+              <span class="cert-year">2026</span>
+            </a>
+
+            <!-- Cert -->
+            <a href="https://drive.google.com/file/d/15OymrDMSwW3qsHp5Y-Qu_EEKyxtZf0Kw/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-card cred-card cert-card cert-link">
+              <h3 class="item-title">IBM SkillsBuild: Data Science Landscape</h3>
+              <p class="item-subtitle">IBM SkillsBuild</p>
+              <span class="cert-year">2026</span>
+            </a>
+
+            <!-- Cert -->
+            <a href="https://courses.cognitiveclass.ai/certificates/ea08801bfeeb456484f6d776e3d0ebec#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-card cred-card cert-card cert-link">
+              <h3 class="item-title">Automate Machine Learning Pipelines Using Apache Airflow</h3>
+              <p class="item-subtitle">Cognitive Class</p>
+              <span class="cert-year">2025</span>
+            </a>
+
+            <!-- Cert -->
+            <a href="https://drive.google.com/file/d/17P1NK1tEehVgY9Ah_P071jGIA1o_EERj/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-card cred-card cert-card cert-link">
+              <h3 class="item-title">Data Classification and Summarization Using IBM Granite</h3>
+              <p class="item-subtitle">IBM SkillsBuild</p>
+              <span class="cert-year">2025</span>
+            </a>
+
+            <!-- Cert -->
+            <a href="https://drive.google.com/file/d/17P1NK1tEehVgY9Ah_P071jGIA1o_EERj/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-card cred-card cert-card cert-link">
+              <h3 class="item-title">edX DelftX BMI.1x: The Value of Business Models</h3>
+              <p class="item-subtitle">Delft University of Technology (edX)</p>
+              <span class="cert-year">2024</span>
+            </a>
+
+            <!-- Cert -->
+            <a href="https://courses.edx.org/certificates/44b2c0cd12ae47f5b8a960a5d5f3d110"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-card cred-card cert-card cert-link">
+              <h3 class="item-title">edX Verified Certificate for Databases: Relational Databases and SQL</h3>
+              <p class="item-subtitle">Standfor Online</p>
+              <span class="cert-year">2024</span>
+            </a>
+
+            <!-- Cert -->
+            <a href="https://drive.google.com/file/d/1SFq-Qkyn6oB9Fezf_AayJYurWuS1OJQ4/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-card cred-card cert-card cert-link">
+              <h3 class="item-title">Master Trainer Cloud Computing of AWS Educate</h3>
+              <p class="item-subtitle">Yayasan Sagasitas Indonesia</p>
+              <span class="cert-year">2021</span>
+            </a>
+
+          </div>
+        </div>
+
+        <button class="cred-carousel-btn next-btn" onclick="moveCredCarousel('certTrack', 1)">❯</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. TECHNICAL PROFICIENCY -->
+  <section id="skills">
+    <div class="container">
+      <span class="section-tag">Technical Proficiency</span>
+      <h2 class="section-title">SKILLS & TOOLSTACK</h2>
+
+      <div class="skills-wrapper">
+        
+        <!-- Group 1: Languages & Querying -->
+        <div class="glass-card">
+          <h3 class="skill-group-title">Languages & Querying</h3>
+          <div class="badge-container">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">SQL</span>
+            <span class="skill-badge">PostgreSQL</span>
+            <span class="skill-badge">Visual Studio Code</span>
+          </div>
+        </div>
+
+        <!-- Group 2: Business Intelligence & Data Viz -->
+        <div class="glass-card">
+          <h3 class="skill-group-title">Business Intelligence</h3>
+          <div class="badge-container">
+            <span class="skill-badge">Power BI</span>
+            <span class="skill-badge">Tableau</span>
+            <span class="skill-badge">Microsoft Excel</span>
+            <span class="skill-badge">Looker Studio</span>
+          </div>
+        </div>
+
+        <!-- Group 3: Data Analytics & Machine Learning -->
+        <div class="glass-card">
+          <h3 class="skill-group-title">Analytics & Machine Learning</h3>
+          <div class="badge-container">
+            <span class="skill-badge">Pandas</span>
+            <span class="skill-badge">NumPy</span>
+            <span class="skill-badge">Matplotlib</span>
+            <span class="skill-badge">Seaborn</span>
+            <span class="skill-badge">Scikit-Learn</span>
+            <span class="skill-badge">EDA & Statistical Analysis</span>
+          </div>
+        </div>
+
+        <!-- Group 4: Strategy & Methodologies (Rekomendasi Tambahan) -->
+        <div class="glass-card">
+          <h3 class="skill-group-title">Product Strategy & Core Competencies</h3>
+          <div class="badge-container">
+            <span class="skill-badge">Product Management</span>
+            <span class="skill-badge">Strategic Analysis</span>
+            <span class="skill-badge">A/B Testing & Metrics</span>
+            <span class="skill-badge">Problem Solving</span>
+            <span class="skill-badge">Git & Version Control</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. FEATURED PROJECTS SECTION -->
+  <section id="projects">
+    <div class="container">
+      <div class="projects-header">
+        <div>
+          <span class="section-tag">Featured Works</span>
+          <h2 class="section-title">FEATURED PROJECTS</h2>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="moveCarousel(-1)">❮</button>
+          <button class="carousel-btn" onclick="moveCarousel(1)">❯</button>
+        </div>
+      </div>
+
+      <div class="carousel-window">
+        <div class="carousel-track" id="carouselTrack">
+          
+          <!-- Project -->
+          <div class="glass-card project-card">
+            <div class="project-image-container">
+              <img src="assets/project-1.jpg" alt="MoPW Policy Evaluation" class="project-image">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-title">Predicting British Airways Flight Booking Conversions Using Machine Learning</h3>
+                <p class="project-desc">In the highly competitive aviation industry, understanding customer booking behavior is critical for optimizing revenue and designing targeted marketing strategies. Airlines track millions of flight searches daily, yet only a small fraction of these interactions actually result in completed transactions or bookings.</p>
+                <div class="project-tags">
+                  <span class="project-tag">Predictive Analysis</span>
+                  <span class="project-tag">Python</span>
+                  <span class="project-tag">Scikit Learn</span>
+                </div>
+              </div>
+              <a href="https://canva.link/y0qiz0ega5n6xsc" class="btn-galaxy btn-card" target="_blank">Project Details →</a>
+            </div>
+          </div>
+
+          <!-- Project -->
+          <div class="glass-card project-card">
+            <div class="project-image-container">
+              <img src="assets/project-2.jpg" alt="FloodSense IoT System" class="project-image">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-title">Evaluasi Kebijakan Kemensos RI Lewat Aspect-Based Sentiment Analysis (ABSA)</h3>
+                <p class="project-desc">Di era digital, media sosial seperti TikTok dan YouTube telah berubah menjadi “front desk” aduan publik. Lantas, bagaimana NLP dapat membantu pemerintah memetakan masalah kebijakan secara terukur dan presisi?</p>
+                <div class="project-tags">
+                  <span class="project-tag">Python</span>
+                  <span class="project-tag">Panas</span>
+                  <span class="project-tag">IndoRoBERTa Transformer</span>
+                  <span class="project-tag">Seaborn</span>
+                  <span class="project-tag">Matplotlib</span>
+                  <span class="project-tag">NTLK</span>
+                </div>
+              </div>
+              <a href="https://canva.link/vr2iaouv2c3dskz" class="btn-galaxy btn-card" target="_blank">Project Details →</a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <!-- <div class="glass-card project-card">
+            <div class="project-image-container">
+              <img src="assets/project-3.jpg" alt="Customer Churn Analytics" class="project-image">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-title">Customer Churn Analytics</h3>
+                <p class="project-desc">Machine learning retention modeling integrated with business metrics to reduce customer churn rate.</p>
+                <div class="project-tags">
+                  <span class="project-tag">Python</span>
+                  <span class="project-tag">SQL</span>
+                  <span class="project-tag">Power BI</span>
+                </div>
+              </div>
+              <a href="#" class="btn-galaxy btn-card">Project Details →</a>
+            </div>
+          </div> -->
+
+          <!-- Project 4 -->
+          <!-- <div class="glass-card project-card">
+            <div class="project-image-container">
+              <img src="assets/project-4.jpg" alt="Garuda Hacks Mentorship" class="project-image">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-title">Garuda Hacks Product Mentorship</h3>
+                <p class="project-desc">Product architecture and business strategy deck mentoring that led Team NataNetra to 2nd place in national finals.</p>
+                <div class="project-tags">
+                  <span class="project-tag">Product Strategy</span>
+                  <span class="project-tag">Mentorship</span>
+                  <span class="project-tag">Business Plan</span>
+                </div>
+              </div>
+              <a href="#" class="btn-galaxy btn-card">Project Details →</a>
+            </div>
+          </div> -->
+
+        </div>
+      </div>
+
+      <!-- MORE PROJECTS BUTTON -->
+      <div class="more-projects-wrapper">
+        <a href="https://github.com/alvitoprasetyo" target="_blank" class="btn-galaxy btn-more">
+          <span>MORE PROJECTS</span>
+          <span class="arrow-icon">↗</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="container">
+      <h2 class="footer-title">LET’S WORK TOGETHER</h2>
+      <p style="color:#94a3b8; max-width:500px; margin: 0 auto 24px auto; font-size: 0.9rem;">
+        Open for collaboration in Data Analytics, Business Intelligence, and Marketing Strategy.
+      </p>
+      
+      <!-- 5 Social Media Buttons -->
+      <div class="social-links">
+        <a href="mailto:mail.alvitoprasetyo@gmail.com" class="social-btn" title="Gmail">
+          <img src="assets/icon-gmail.png" alt="Gmail">
+        </a>
+        <a href="https://www.linkedin.com/in/alvitoprasetyo/" target="_blank" class="social-btn" title="LinkedIn">
+          <img src="assets/icon-linkedin.png" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/alvitoprasetyo" target="_blank" class="social-btn" title="GitHub">
+          <img src="assets/icon-github.png" alt="GitHub">
+        </a>
+        <a href="http://alvitoprasetyo.medium.com/" target="_blank" class="social-btn" title="Medium">
+          <img src="assets/icon-medium.png" alt="Medium">
+        </a>
+        <a href="https://discord.com/users/alvitoprasetyo" target="_blank" class="social-btn" title="Discord">
+          <img src="assets/icon-discord.png" alt="Discord">
+        </a>
+      </div>
+
+      <p class="copyright">© 2026 Alvito Ahadiyanto Prasetyo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- External Script JS -->
+  <script src="script.js"></script>
+</body>
+</html>

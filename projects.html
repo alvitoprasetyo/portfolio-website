@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Alvito A. Prasetyo</title>
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+
+  <!-- Stars & Galaxy Ambient Overlay -->
+  <div class="space-background"></div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo-white.png" alt="Logo" class="site-logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About Me</a></li>
+        <li><a href="index.html#credentials">Credentials</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PROJECTS SECTION -->
+  <section class="projects-page-section">
+    <div class="container-wide">
+      <div class="projects-page-header">
+        <span class="section-tag">Explore Portfolio</span>
+        <h1 class="section-title">ALL PROJECTS</h1>
+      </div>
+
+    <!-- SEARCH & SORT CONTROLS -->
+      <div class="filter-wrapper glass-card">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search projects by name, description, or tools...">
+        </div>
+        <div class="sort-dropdowns">
+          <select id="sortSelect" class="filter-select">
+            <option value="confidence">Default</option>
+            <option value="newest">Sort by: Newest</option>
+            <option value="oldest">Sort by: Oldest</option>
+            <option value="az">Sort by Name Ascending</option>
+            <option value="za">Sort by Name Descending</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- PROJECTS GRID (3 Columns) -->
+      <div class="projects-grid" id="projectsGrid">
+
+        <!-- Project 1 -->
+        <div class="glass-card proj-card" data-name="Predicting British Airways Flight Booking Conversions Using Machine Learning" data-date="2026-01-15" data-confidence="10">
+            <div class="proj-img-container">
+            <img src="assets/project-1.jpg" alt="Flight Booking Conversions" class="proj-img">
+            </div>
+            <div class="proj-content">
+            <div>
+                <div class="proj-meta">
+                <span class="proj-date">Jan 2026</span>
+                <span class="proj-cat-badge">Predictive Modelling</span>
+                </div>
+                <h3 class="proj-title">Predicting British Airways Flight Booking Conversions Using Machine Learning</h3>
+                <p class="proj-desc">Menganalisis perilaku pemesanan pelanggan maskapai penerbangan untuk mengoptimalkan pendapatan dan mengidentifikasi faktor penentu konversi transaksi.</p>
+                <div class="proj-tags">
+                <span class="proj-tag">Python</span>
+                <span class="proj-tag">Scikit-Learn</span>
+                <span class="proj-tag">Pandas</span>
+                </div>
+            </div>
+            
+            <div class="proj-card-footer">
+                <a href="https://canva.link/y0qiz0ega5n6xsc" target="_blank" class="btn-galaxy btn-see-project">SEE PROJECT →</a>
+                
+                <div class="proj-icon-links">
+                <a href="https://github.com/alvitoprasetyo/british-airways-customer-booking-behavior" target="_blank" class="proj-icon-btn" title="GitHub Repository"><img src="assets/icon-github.png" alt="GitHub"></a>
+                <a href="https://alvitoprasetyo.medium.com/predicting-british-airways-flight-booking-conversions-using-machine-learning-f7ff7c48a242" target="_blank" class="proj-icon-btn" title="Medium Article"><img src="assets/icon-medium.png" alt="Medium"></a>
+                <a href="#" class="proj-icon-btn disabled" title="Dashboard Unavailable"><img src="assets/icon-dashboard.png" alt="Dashboard"></a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Project Kemensos -->
+        <div class="glass-card proj-card" data-name="Evaluasi Kebijakan Kemensos RI Lewat Aspect-Based Sentiment Analysis (ABSA)" data-date="2026-05-10" data-confidence="20">
+            <div class="proj-img-container">
+            <img src="assets/project-2.jpg" alt="Kemensos ABSA Policy" class="proj-img">
+            </div>
+            <div class="proj-content">
+            <div>
+                <div class="proj-meta">
+                <span class="proj-date">May 2026</span>
+                <span class="proj-cat-badge">Social Media Analytics</span>
+                </div>
+                <h3 class="proj-title">Evaluasi Kebijakan Kemensos RI Lewat Aspect-Based Sentiment Analysis (ABSA)</h3>
+                <p class="proj-desc">Memetakan aduan publik dari TikTok dan YouTube terkait kebijakan Kementerian Sosial menggunakan model transformer IndoRoBERTa.</p>
+                <div class="proj-tags">
+                <span class="proj-tag">Python</span>
+                <span class="proj-tag">IndoRoBERTa</span>
+                <span class="proj-tag">Pandas</span>
+                </div>
+            </div>
+            
+            <div class="proj-card-footer">
+                <a href="https://canva.link/vr2iaouv2c3dskz" target="_blank" class="btn-galaxy btn-see-project">SEE PROJECT →</a>
+                
+                <div class="proj-icon-links">
+                <a href="https://github.com/alvitoprasetyo/kemensos-sentimen-analysis" target="_blank" class="proj-icon-btn" title="GitHub Repository"><img src="assets/icon-github.png" alt="GitHub"></a>
+                <a href="https://alvitoprasetyo.medium.com/evaluasi-kebijakan-kemensos-ri-lewat-aspect-based-sentiment-analysis-absa-f3894ce6f6e2" target="_blank" class="proj-icon-btn" title="Medium Article"><img src="assets/icon-medium.png" alt="Medium"></a>
+                <!-- Dashboard Kemensos diaktifkan di sini -->
+                <a href="https://public.tableau.com/app/profile/alvito.prasetyo/viz/evaluasi-kebijakan-kemensos/D1" target="_blank" class="proj-icon-btn" title="Tableau Dashboard"><img src="assets/icon-dashboard.png" alt="Dashboard"></a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Project BCG X Customer Churn Energy -->
+        <div class="glass-card proj-card" data-name="Predicting and Mitigating Customer Churn in the Energy Sector" data-date="2026-11-01" data-confidence="30">
+            <div class="proj-img-container">
+            <img src="assets/project-3.jpg" alt="Customer Churn Energy" class="proj-img">
+            </div>
+            <div class="proj-content">
+            <div>
+                <div class="proj-meta">
+                <span class="proj-date">Nov 2026</span>
+                <span class="proj-cat-badge">Predictive Modelling</span>
+                </div>
+                <h3 class="proj-title">Predicting and Mitigating Customer Churn in the Energy Sector</h3>
+                <p class="proj-desc">MBuilt a machine learning customer churn prediction model using the PowerCo energy sector dataset and Random Forest classification to help identify at-risk customers and proactively mitigate contract cancellations.</p>
+                <div class="proj-tags">
+                <span class="proj-tag">Python</span>
+                <span class="proj-tag">Scikit-Learn</span>
+                <span class="proj-tag">Pandas</span>
+                </div>
+            </div>
+            
+            <div class="proj-card-footer">
+                <a href="https://canva.link/68hmgzqw2e0oaba" target="_blank" class="btn-galaxy btn-see-project">SEE PROJECT →</a>
+                
+                <div class="proj-icon-links">
+                <a href="https://github.com/alvitoprasetyo/bcgx-powerco" target="_blank" class="proj-icon-btn" title="GitHub Repository"><img src="assets/icon-github.png" alt="GitHub"></a>
+                <a href="https://alvitoprasetyo.medium.com/predicting-and-mitigating-customer-churn-in-the-energy-sector-79e6a38e559d" target="_blank" class="proj-icon-btn" title="Medium Article"><img src="assets/icon-medium.png" alt="Medium"></a>
+                <a href="#" class="proj-icon-btn disabled" title="Dashboard Unavailable"><img src="assets/icon-dashboard.png" alt="Dashboard"></a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Project Medejoy -->
+        <div class="glass-card proj-card" data-name="Commercial Performance and Outlet Growth Analytics" data-date="2026-11-15" data-confidence="40">
+            <div class="proj-img-container">
+            <img src="assets/project-4.jpg" alt="Commercial Performance Analytics" class="proj-img">
+            </div>
+            <div class="proj-content">
+            <div>
+                <div class="proj-meta">
+                <span class="proj-date">Nov 2026</span>
+                <span class="proj-cat-badge">Sales Analytics</span>
+                </div>
+                <h3 class="proj-title">Commercial Performance & Outlet Growth Analytics</h3>
+                <p class="proj-desc">Executive Tableau Dashboard for processing 1.28 million FMCG transactions, monitoring General Trade (GT) outlet penetration, and evaluating SKU launches.</p>
+                <div class="proj-tags">
+                <span class="proj-tag">Tableau</span>
+                <span class="proj-tag">Python</span>
+                <span class="proj-tag">Sales</span>
+                </div>
+            </div>
+            
+            <div class="proj-card-footer">
+                <a href="https://canva.link/jlsw9m0chnnr4ai" target="_blank" class="btn-galaxy btn-see-project">SEE PROJECT →</a>
+                
+                <div class="proj-icon-links">
+                <a href="https://github.com/alvitoprasetyo/medejoy" target="_blank" class="proj-icon-btn" title="GitHub Repository"><img src="assets/icon-github.png" alt="GitHub"></a>
+                <a href="http://alvitoprasetyo.medium.com/" target="_blank" class="proj-icon-btn" title="Medium Article"><img src="assets/icon-medium.png" alt="Medium"></a>
+                <a href="https://public.tableau.com" target="_blank" class="proj-icon-btn" title="Tableau Dashboard"><img src="assets/icon-dashboard.png" alt="Dashboard"></a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <h2 class="footer-title">LET’S WORK TOGETHER</h2>
+      <p style="color:#94a3b8; max-width:500px; margin: 0 auto 24px auto; font-size: 0.9rem;">
+        Open to opportunities and collaboration in Data Analytics, Data Science, and Data-Driven Strategy.
+      </p>
+      
+      <div class="social-links">
+        <a href="mailto:mail.alvitoprasetyo@gmail.com" class="social-btn" title="Gmail"><img src="assets/icon-gmail.png" alt="Gmail"></a>
+        <a href="https://www.linkedin.com/in/alvitoprasetyo/" target="_blank" class="social-btn" title="LinkedIn"><img src="assets/icon-linkedin.png" alt="LinkedIn"></a>
+        <a href="https://github.com/alvitoprasetyo" target="_blank" class="social-btn" title="GitHub"><img src="assets/icon-github.png" alt="GitHub"></a>
+        <a href="http://alvitoprasetyo.medium.com/" target="_blank" class="social-btn" title="Medium"><img src="assets/icon-medium.png" alt="Medium"></a>
+        <a href="https://discord.com/users/alvitoprasetyo" target="_blank" class="social-btn" title="Discord"><img src="assets/icon-discord.png" alt="Discord"></a>
+      </div>
+
+      <p class="copyright">© 2026 Alvito Ahadiyanto Prasetyo</p>
+    </div>
+  </footer>
+
+  <!-- External Script -->
+  <script src="projects.js"></script>
+</body>
+</html>

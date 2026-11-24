@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     grid.innerHTML = list.map(c => {
       const rawLogo = (c.logo_url || c.badge_image_url || '').trim();
-      const logoSrc = resolveRootAssetUrl(rawLogo, 'admin/assets/logo-white.png');
+      const logoSrc = resolveRootAssetUrl(rawLogo, 'assets/logo-white.png');
       const credType = (c.type || 'cert').toLowerCase();
       
       let badgeLabel = 'CERTIFICATE';
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div class="glass-card cred-page-card" data-type="${escapeHtml(credType)}" data-name="${escapeHtml(c.title)}" data-date="${escapeHtml(c.issued_date || '2026-01-01')}" data-issuer="${escapeHtml(c.issuer || '')}">
           <div class="cred-card-top">
             <div class="cred-thumb-wrapper">
-              <img src="${escapeHtml(logoSrc)}" alt="${escapeHtml(c.title)}" class="cred-thumb" onerror="this.src='admin/assets/logo-white.png'; this.classList.add('fallback-thumb');">
+              <img src="${escapeHtml(logoSrc)}" alt="${escapeHtml(c.title)}" class="cred-thumb" onerror="this.src='assets/logo-white.png'; this.classList.add('fallback-thumb');">
             </div>
             <span class="item-badge ${badgeClass}">${badgeLabel}</span>
           </div>

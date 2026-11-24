@@ -17,26 +17,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     grid.innerHTML = list.map((p, index) => {
-      const imgSrc = resolveRootAssetUrl(p.image_url, 'admin/assets/project-1.jpg');
+      const imgSrc = resolveRootAssetUrl(p.image_url, 'assets/project-1.jpg');
       const projectLink = p.project_url || p.dashboard_url || p.medium_url || p.github_url || '#';
       const tagsHtml = (p.skills || [])
         .map(tag => `<span class="proj-tag">${escapeHtml(tag)}</span>`)
         .join('');
 
       const githubBtn = p.github_url
-        ? `<a href="${escapeHtml(p.github_url)}" target="_blank" rel="noopener noreferrer" class="proj-icon-btn" title="GitHub Repository"><img src="admin/assets/icon-github.png" alt="GitHub"></a>`
+        ? `<a href="${escapeHtml(p.github_url)}" target="_blank" rel="noopener noreferrer" class="proj-icon-btn" title="GitHub Repository"><img src="assets/icon-github.png" alt="GitHub"></a>`
         : '';
       const mediumBtn = p.medium_url
-        ? `<a href="${escapeHtml(p.medium_url)}" target="_blank" rel="noopener noreferrer" class="proj-icon-btn" title="Medium Article"><img src="admin/assets/icon-medium.png" alt="Medium"></a>`
+        ? `<a href="${escapeHtml(p.medium_url)}" target="_blank" rel="noopener noreferrer" class="proj-icon-btn" title="Medium Article"><img src="assets/icon-medium.png" alt="Medium"></a>`
         : '';
       const dashboardBtn = p.dashboard_url
-        ? `<a href="${escapeHtml(p.dashboard_url)}" target="_blank" rel="noopener noreferrer" class="proj-icon-btn" title="Dashboard"><img src="admin/assets/icon-dashboard.png" alt="Dashboard"></a>`
+        ? `<a href="${escapeHtml(p.dashboard_url)}" target="_blank" rel="noopener noreferrer" class="proj-icon-btn" title="Dashboard"><img src="assets/icon-dashboard.png" alt="Dashboard"></a>`
         : '';
 
       return `
         <div class="glass-card proj-card" data-name="${escapeHtml(p.title)}" data-date="${escapeHtml(p.published_date || '2026-01-01')}" data-order="${index}">
           <div class="proj-img-container">
-            <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" class="proj-img" onerror="this.src='admin/assets/logo-white.png';">
+            <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" class="proj-img" onerror="this.src='assets/logo-white.png';">
           </div>
           <div class="proj-content">
             <div>

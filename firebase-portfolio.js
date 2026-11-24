@@ -100,7 +100,7 @@ async function loadPortfolioFromFirebase() {
   }
 }
 
-function resolveRootAssetUrl(rawUrl, fallback = 'admin/assets/project-1.jpg') {
+function resolveRootAssetUrl(rawUrl, fallback = 'assets/project-1.jpg') {
   const cleaned = (rawUrl || '').trim();
   if (!cleaned) return fallback;
   if (/^(https?:\/\/|data:|blob:)/i.test(cleaned)) return cleaned;

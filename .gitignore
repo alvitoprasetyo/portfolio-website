@@ -1,3 +1,4 @@
 @"
 admin/
+firebase-portfolio.js/
 "@ | Out-File -FilePath .gitignore -Encoding utf8

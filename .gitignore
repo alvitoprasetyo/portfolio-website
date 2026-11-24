@@ -1,7 +1,3 @@
 @"
-admin/admin.css
-admin/admin.js
-admin/index.html
-admin/firebase-config.js
-firebase-portfolio.js
+admin/
 "@ | Out-File -FilePath .gitignore -Encoding utf8

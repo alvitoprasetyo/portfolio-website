@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // Format path logo: admin/(sesuai isi kolom)
-function buildAdminLogoSrc(item, fallback = 'admin/assets/logo-white.png') {
+function buildAdminLogoSrc(item, fallback = 'assets/logo-white.png') {
   const rawCol = String(
     item?.logo_url ?? item?.badge_image_url ?? item?.logo ?? ''
   ).trim();
@@ -74,7 +74,7 @@ function renderExperienceTrack(items) {
     return `
       <div class="glass-card cred-card">
         <div class="cred-item-heading">
-          <img src="${escapeHtml(logoSrc)}" alt="${escapeHtml(exp.organization || exp.role_title)} logo" class="cred-item-logo" onerror="this.src='admin/assets/logo-white.png';">
+          <img src="${escapeHtml(logoSrc)}" alt="${escapeHtml(exp.organization || exp.role_title)} logo" class="cred-item-logo" onerror="this.src='assets/logo-white.png';">
           <div>
             <h3 class="item-title">${escapeHtml(exp.role_title)}</h3>
             <p class="item-subtitle">${escapeHtml(exp.organization)}</p>
@@ -111,7 +111,7 @@ function renderEducationTrack(items) {
     return `
       <div class="glass-card cred-card">
         <div class="cred-item-heading">
-          <img src="${escapeHtml(logoSrc)}" alt="${escapeHtml(edu.institution || edu.program)} logo" class="cred-item-logo" onerror="this.src='admin/assets/logo-white.png';">
+          <img src="${escapeHtml(logoSrc)}" alt="${escapeHtml(edu.institution || edu.program)} logo" class="cred-item-logo" onerror="this.src='assets/logo-white.png';">
           <div>
             <h3 class="item-title">${escapeHtml(edu.program)}</h3>
             <p class="item-subtitle">${escapeHtml(edu.institution)}${gpaText}</p>
@@ -146,7 +146,7 @@ function renderCertTrack(items) {
       <a href="${escapeHtml(linkUrl)}" target="_blank" rel="noopener noreferrer" class="glass-card cred-card cert-card cert-link">
         <div class="cert-card-top">
           <div class="cert-logo-badge">
-            <img src="${escapeHtml(logoSrc)}" alt="${escapeHtml(cred.issuer || cred.title)} logo" class="cert-logo-img" onerror="this.src='admin/assets/logo-white.png';">
+            <img src="${escapeHtml(logoSrc)}" alt="${escapeHtml(cred.issuer || cred.title)} logo" class="cert-logo-img" onerror="this.src='assets/logo-white.png';">
           </div>
           <span class="cert-year">${escapeHtml(certYear)}</span>
         </div>
@@ -171,7 +171,7 @@ function renderFeaturedProjectsTrack(items) {
   }
 
   track.innerHTML = items.map(p => {
-    const imgSrc = resolveRootAssetUrl(p.image_url, 'admin/assets/project-1.jpg');
+    const imgSrc = resolveRootAssetUrl(p.image_url, 'assets/project-1.jpg');
     const targetUrl = p.project_url || p.dashboard_url || p.medium_url || p.github_url || '#';
     const tagsHtml = (p.skills || [])
       .map(tag => `<span class="project-tag">${escapeHtml(tag)}</span>`)
@@ -180,7 +180,7 @@ function renderFeaturedProjectsTrack(items) {
     return `
       <div class="glass-card project-card">
         <div class="project-image-container">
-          <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" class="project-image" onerror="this.src='admin/assets/logo-white.png';">
+          <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" class="project-image" onerror="this.src='assets/logo-white.png';">
         </div>
         <div class="project-info">
           <div>

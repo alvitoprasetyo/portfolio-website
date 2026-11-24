@@ -1,85 +1,103 @@
 // ==========================================================================
-// PROJECTS PAGE SCRIPT (SEARCH & SORT)
+// PROJECTS PAGE SCRIPT (FIRESTORE INTEGRATED + SEARCH & SORT)
 // ==========================================================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const searchInput = document.getElementById('searchInput');
-  const sortDateSelect = document.getElementById('sortDate');
-  const sortNameSelect = document.getElementById('sortName');
-  
+  const sortSelect = document.getElementById('sortSelect');
   const grid = document.getElementById('projectsGrid');
   if (!grid) return;
-  
-  // Ambil semua elemen kartu proyek asli
-  let cards = Array.from(grid.getElementsByClassName('proj-card'));
+
+  const db = await loadPortfolioFromFirebase();
+  const publishedProjects = (db.projects || []).filter(p => p.is_published !== false);
+
+  function renderProjectCards(list) {
+    if (list.length === 0) {
+      grid.innerHTML = `<p style="grid-column: span 3; text-align: center; color: #94a3b8; padding: 40px 0;">No projects found matching your search.</p>`;
+      return;
+    }
+
+    grid.innerHTML = list.map((p, index) => {
+      const imgSrc = resolveRootAssetUrl(p.image_url, 'admin/assets/project-1.jpg');
+      const projectLink = p.project_url || p.dashboard_url || p.medium_url || p.github_url || '#';
+      const tagsHtml = (p.skills || [])
+        .map(tag => `<span class="proj-tag">${escapeHtml(tag)}</span>`)
+        .join('');
+
+      const githubBtn = p.github_url
+        ? `<a href="${escapeHtml(p.github_url)}" target="_blank" rel="noopener noreferrer" class="proj-icon-btn" title="GitHub Repository"><img src="admin/assets/icon-github.png" alt="GitHub"></a>`
+        : '';
+      const mediumBtn = p.medium_url
+        ? `<a href="${escapeHtml(p.medium_url)}" target="_blank" rel="noopener noreferrer" class="proj-icon-btn" title="Medium Article"><img src="admin/assets/icon-medium.png" alt="Medium"></a>`
+        : '';
+      const dashboardBtn = p.dashboard_url
+        ? `<a href="${escapeHtml(p.dashboard_url)}" target="_blank" rel="noopener noreferrer" class="proj-icon-btn" title="Dashboard"><img src="admin/assets/icon-dashboard.png" alt="Dashboard"></a>`
+        : '';
+
+      return `
+        <div class="glass-card proj-card" data-name="${escapeHtml(p.title)}" data-date="${escapeHtml(p.published_date || '2026-01-01')}" data-order="${index}">
+          <div class="proj-img-container">
+            <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" class="proj-img" onerror="this.src='admin/assets/logo-white.png';">
+          </div>
+          <div class="proj-content">
+            <div>
+              <div class="proj-meta">
+                <span class="proj-date">${escapeHtml(formatMonthYear(p.published_date))}</span>
+                <span class="proj-cat-badge">${escapeHtml(p.category || 'Project')}</span>
+              </div>
+              <h3 class="proj-title">${escapeHtml(p.title)}</h3>
+              <p class="proj-desc">${escapeHtml(p.description || '')}</p>
+              <div class="proj-tags">${tagsHtml}</div>
+            </div>
+
+            <div class="proj-card-footer">
+              <a href="${escapeHtml(projectLink)}" target="_blank" rel="noopener noreferrer" class="btn-galaxy btn-see-project">SEE PROJECT →</a>
+              <div class="proj-icon-links">
+                ${githubBtn}
+                ${mediumBtn}
+                ${dashboardBtn}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
 
   function filterAndSortProjects() {
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
-    // 1. Filter berdasarkan Search Bar (Nama, Deskripsi, Tags)
-    let filteredCards = cards.filter(card => {
-      const name = card.getAttribute('data-name') ? card.getAttribute('data-name').toLowerCase() : '';
-      const descElement = card.querySelector('.proj-desc');
-      const desc = descElement ? descElement.textContent.toLowerCase() : '';
-      const tagsElement = card.querySelector('.proj-tags');
-      const tags = tagsElement ? tagsElement.textContent.toLowerCase() : '';
+    const filtered = publishedProjects.filter(p => {
+      const name = (p.title || '').toLowerCase();
+      const category = (p.category || '').toLowerCase();
+      const desc = (p.description || '').toLowerCase();
+      const tags = (p.skills || []).join(' ').toLowerCase();
 
-      return name.includes(searchTerm) || desc.includes(searchTerm) || tags.includes(searchTerm);
+      return (
+        !searchTerm ||
+        name.includes(searchTerm) ||
+        category.includes(searchTerm) ||
+        desc.includes(searchTerm) ||
+        tags.includes(searchTerm)
+      );
     });
 
-    // 2. Logika Pengurutan (Sort)
-    const nameSortValue = sortNameSelect ? sortNameSelect.value : 'default';
-    const dateSortValue = sortDateSelect ? sortDateSelect.value : 'newest';
+    const sortValue = sortSelect ? sortSelect.value : 'confidence';
 
-    if (nameSortValue !== 'default') {
-      // Sorting berdasarkan Abjad Nama (A-Z / Z-A)
-      filteredCards.sort((a, b) => {
-        const nameA = a.getAttribute('data-name') || '';
-        const nameB = b.getAttribute('data-name') || '';
-        return nameSortValue === 'az' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
-      });
-    } else if (dateSortValue) {
-      // Sorting berdasarkan Tanggal (Newest / Oldest)
-      filteredCards.sort((a, b) => {
-        const dateA = new Date(a.getAttribute('data-date') || '2026-01-01');
-        const dateB = new Date(b.getAttribute('data-date') || '2026-01-01');
-        return dateSortValue === 'newest' ? dateB - dateA : dateA - dateB;
-      });
-    } else {
-      // DEFAULT: Sorting berdasarkan Confidence (prioritas tertinggi di atas)
-      filteredCards.sort((a, b) => {
-        const confA = parseFloat(a.getAttribute('data-confidence') || '0');
-        const confB = parseFloat(b.getAttribute('data-confidence') || '0');
-        return confB - confA;
-      });
+    if (sortValue === 'newest') {
+      filtered.sort((a, b) => new Date(b.published_date || '2026-01-01') - new Date(a.published_date || '2026-01-01'));
+    } else if (sortValue === 'oldest') {
+      filtered.sort((a, b) => new Date(a.published_date || '2026-01-01') - new Date(b.published_date || '2026-01-01'));
+    } else if (sortValue === 'az') {
+      filtered.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+    } else if (sortValue === 'za') {
+      filtered.sort((a, b) => (b.title || '').localeCompare(a.title || ''));
     }
 
-    // 3. Render ulang hasil ke dalam grid
-    grid.innerHTML = '';
-    if (filteredCards.length === 0) {
-      grid.innerHTML = `<p style="grid-column: span 3; text-align: center; color: #94a3b8; padding: 40px 0;">No projects found matching your search.</p>`;
-    } else {
-      filteredCards.forEach(card => grid.appendChild(card));
-    }
+    renderProjectCards(filtered);
   }
 
-  // Jalankan sekali saat halaman pertama kali dibuka (Default sort by Confidence)
+  if (searchInput) searchInput.addEventListener('input', filterAndSortProjects);
+  if (sortSelect) sortSelect.addEventListener('change', filterAndSortProjects);
+
   filterAndSortProjects();
-
-  // Pasang Event Listener agar input & dropdown langsung merespons
-  if (searchInput) {
-    searchInput.addEventListener('input', filterAndSortProjects);
-  }
-  
-  if (sortDateSelect) {
-    sortDateSelect.addEventListener('change', () => {
-      if (sortNameSelect) sortNameSelect.value = 'default'; // Reset pilihan abjad jika date diubah
-      filterAndSortProjects();
-    });
-  }
-
-  if (sortNameSelect) {
-    sortNameSelect.addEventListener('change', () => {
-      filterAndSortProjects();
-    });
-  }
 });

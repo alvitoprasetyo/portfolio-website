@@ -101,11 +101,16 @@ async function loadPortfolioFromFirebase() {
 }
 
 function resolveRootAssetUrl(rawUrl, fallback = 'assets/project-1.jpg') {
-  const cleaned = (rawUrl || '').trim();
+  const cleaned = String(rawUrl || '').trim();
   if (!cleaned) return fallback;
   if (/^(https?:\/\/|data:|blob:)/i.test(cleaned)) return cleaned;
-  const noPrefix = cleaned.replace(/^(\.\.\/)+/, '').replace(/^\/+/, '');
-  return noPrefix.startsWith('admin/') ? noPrefix : `admin/${noPrefix}`;
+
+  const noPrefix = cleaned
+    .replace(/^(\.\.\/)+/, '')
+    .replace(/^\/+/, '')
+    .replace(/^admin\/(?=assets\/)/i, '');
+
+  return noPrefix.startsWith('assets/') ? noPrefix : `assets/${noPrefix}`;
 }
 
 function escapeHtml(str = '') {

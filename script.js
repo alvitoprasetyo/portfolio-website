@@ -42,8 +42,12 @@ function buildAdminLogoSrc(item, fallback = 'assets/logo-white.png') {
   if (/^(https?:\/\/|data:|blob:)/i.test(rawCol)) {
     return rawCol;
   }
-  const normalized = rawCol.replace(/^(\.\.\/)+/, '').replace(/^\/+/, '');
-  return normalized.startsWith('admin/') ? normalized : `admin/${normalized}`;
+  const normalized = rawCol
+    .replace(/^(\.\.\/)+/, '')
+    .replace(/^\/+/, '')
+    .replace(/^admin\/(?=assets\/)/i, '');
+
+  return normalized.startsWith('assets/') ? normalized : `assets/${normalized}`;
 }
 
 // Render Experience Carousel Track (Periode di atas deskripsi)
